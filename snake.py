@@ -23,6 +23,13 @@ class Snake:
             link.goto(position)
             self.__segments.append(link)
 
+    def get_head(self):
+        return self.__head
+
+    def snake_grow_snake(self):
+        last_link = self.__segments[len(self.__segments) - 1]
+        new_segment = (last_link[0], last_link[1])
+
     def move(self):
         for seg_num in range(len(self.__segments) - 1, 0, -1):
             new_x = self.__segments[seg_num - 1].xcor()
