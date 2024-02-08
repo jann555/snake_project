@@ -48,10 +48,8 @@ def start_game(screen):
             food.refresh()
 
         # Detect Collision with body
-        for segment in snake.get_snake_body():
-            if segment == snake.get_head():
-                pass
-            elif snake.get_head().distance(segment) < 10:
+        for segment in snake.get_snake_body()[1:]:
+            if snake.get_head().distance(segment) < 10:
                 game_is_on = False
                 score.game_over()
                 food.refresh()
