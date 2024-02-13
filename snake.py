@@ -24,6 +24,13 @@ class Snake:
     def get_snake_body(self):
         return self.__segments
 
+    def reset(self):
+        for seg in self.__segments:
+            seg.goto(100, 100)
+        self.__segments.clear()
+        self.__create_snake()
+        self.__head = self.__segments[HEAD]
+
     def add_segment(self, position):
         link = Turtle()
         link.penup()
