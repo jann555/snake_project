@@ -43,16 +43,18 @@ def start_game(screen):
         # Detect Collision with wall
         if (snake.get_head().xcor() > 288 or snake.get_head().xcor() < -288 or
                 snake.get_head().ycor() > 288 or snake.get_head().ycor() < -288):
-            game_is_on = False
-            score.game_over()
+            # game_is_on = False
+            snake.reset()
+            score.reset()
             food.refresh()
 
         # Detect Collision with body
         for segment in snake.get_snake_body()[1:]:
             if snake.get_head().distance(segment) < 10:
-                game_is_on = False
-                score.game_over()
+                # game_is_on = False
                 food.refresh()
+                score.reset()
+                snake.reset()
 
 
 def load_snake_game():
